@@ -46,6 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                      color: const Color(0xFFEDEBE9)
                    ),
                    child: TextFormField(
+                     maxLength: 5,
                      decoration: InputDecoration(
                        border: InputBorder.none,
                        prefixIcon: Container(
@@ -69,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                  const SizedBox(height: 15.0,),
                  Container(
                    width: MediaQuery.of(context).size.width,
-                   height: MediaQuery.of(context).size.width*.13,
+                   height: MediaQuery.of(context).size.width*.18,
                    decoration: BoxDecoration(
                        shape: BoxShape.rectangle,
                        borderRadius: BorderRadius.circular(7),
@@ -77,17 +78,24 @@ class _LoginScreenState extends State<LoginScreen> {
                    ),
                    child: TextFormField(
                      obscureText: true,
+                     maxLength: 10,
                      decoration: InputDecoration(
-                       border: InputBorder.none,
+                       border: OutlineInputBorder(
+                           borderSide: BorderSide(
+                             color: Colors.grey, // Adjust the border color as needed
+                             width: 5.0, // Adjust the border width as needed
+                           ),
+                       ),
                        prefixIcon: Container(
                          padding: const EdgeInsets.fromLTRB(16, 16, 8, 16),
                          child: Image.asset('asset/png_icons/lock.png',),
                        ),
-                       contentPadding: EdgeInsets.only(top: 8, bottom: 10),
+                       contentPadding: EdgeInsets.only(top: 5, bottom: 10),
                        labelText: 'Password',
                        labelStyle: TextStyle(color: Colors.black),
                        hintText: 'Password',
                        hintStyle: TextStyle(color: Colors.black),
+                       counter: const SizedBox(),
                      ),
                      validator: (value) {
                        if (value == null || value.isEmpty) {
@@ -95,6 +103,27 @@ class _LoginScreenState extends State<LoginScreen> {
                        }
                        return null;
                      },
+                   ),
+                 ),
+                 const TextField(
+                   cursorColor: Colors.white,
+                   decoration: InputDecoration(
+                     filled: false,
+                     fillColor: Colors.red,
+                     focusedBorder: OutlineInputBorder(
+                       borderSide: BorderSide(
+                         color: Colors.transparent,
+                         width: 5.0
+                       )
+                     ),
+                     enabledBorder: OutlineInputBorder(
+                       borderSide: BorderSide(
+                         color: Colors.transparent,
+                       )
+                     ),
+                     labelText: "Enter",
+                     labelStyle: TextStyle(color: Colors.red),
+                     hintText: "Here"
                    ),
                  ),
                  const SizedBox(height: 10.0,),

@@ -205,7 +205,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                         context: context,
                         builder: (BuildContext context){
                           return  AlertDialog(
-                            title: Container(
+                            title: SizedBox(
                               width: double.maxFinite,
                               height: 318.0,
                               child:  Column(

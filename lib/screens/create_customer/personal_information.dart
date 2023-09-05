@@ -19,6 +19,14 @@ class _PersonalInformationState extends State<PersonalInformation> {
   TextEditingController mname = TextEditingController();
   TextEditingController lname = TextEditingController();
   TextEditingController nin = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+
+  void updateDate(String selectedDate) {
+    setState(() {
+      dateController.text = selectedDate;
+    });
+  }
+
 
   var chooseButton = 0;
   @override
@@ -138,7 +146,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 12.0, 5.0, 15.0, 15.0, 0.0
             ))
           ]),
-          const DatePickerWidget(myDate: "Date of Birth", left: 15.0, top: 15.0, right: 15.0, bottom: 0.0),
+          DatePickerWidget(myDate: "Date of Birth", left: 15.0, top: 15.0, right: 15.0, bottom: 0.0, onDateSelected: updateDate,),
           const SizedBox(height: 20)
         ],),
     );

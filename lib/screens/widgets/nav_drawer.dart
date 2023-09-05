@@ -9,6 +9,7 @@ class NavDrawer extends StatefulWidget {
 }
 
 class _NavDrawerState extends State<NavDrawer> {
+  int selection = 0;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -62,14 +63,17 @@ class _NavDrawerState extends State<NavDrawer> {
                     height: 20.0,
                     width: 50.0,
                   ),
-                  SizedBox(width: 10),
-                  Text('Dashboard', style: TextStyle(color: Colors.white),)
+                  const SizedBox(width: 10),
+                  const Text('Dashboard', style: TextStyle(color: Colors.white),)
                 ],),
               ),
             ),
             GestureDetector(
               onTap: (){
-                Navigator.pop(context);
+                setState((){
+                  selection = 1;
+                });
+                // Navigator.pop(context);
               },
               child: Container(
                 width: MediaQuery.of(context).size.width,
@@ -78,17 +82,20 @@ class _NavDrawerState extends State<NavDrawer> {
                 padding: const EdgeInsets.only(left: 15, right: 20),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    color: Colors.transparent
+                    color: selection == 1 ? const Color(0x202B88D8) : Colors.transparent
                 ),
                 child: Row(children: [
                   SvgPicture.asset('asset/svg_icons/document_icon.svg',
-                    color: Colors.grey,
+                    color: selection == 1 ? const Color(0xFF2B88D8) : Colors.grey,
                     height: 20.0,
                     width: 50.0,
                   ),
                   const SizedBox(width: 7),
-                  const Expanded(child: Text('Loan Collections', style: TextStyle(color: Colors.grey),)),
-                  const Icon(Icons.arrow_forward_ios, size: 12.0,)
+                   Expanded(child: Text('Loan Collections',
+                    style: TextStyle(color: selection == 1 ? const Color(0xFF2B88D8) : Colors.grey),)),
+                  Icon(Icons.arrow_forward_ios, size: 12.0,
+                      color: selection == 1 ? const Color(0xFF2B88D8) : Colors.grey
+                  )
                 ],),
               ),
             ),
@@ -96,7 +103,10 @@ class _NavDrawerState extends State<NavDrawer> {
             const Text('Accounts', style: TextStyle(color: Color(0xff757575)),),
             GestureDetector(
               onTap: (){
-                Navigator.pop(context);
+                // Navigator.pop(context);
+                setState(() {
+                  selection = 2;
+                });
               },
               child: Container(
                 width: MediaQuery.of(context).size.width,
@@ -105,23 +115,29 @@ class _NavDrawerState extends State<NavDrawer> {
                 padding: const EdgeInsets.only(left: 15, right: 20),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    color: Colors.transparent
+                    color: selection == 2 ? const Color(0x202B88D8) : Colors.transparent
                 ),
                 child: Row(children: [
                   SvgPicture.asset('asset/svg_icons/leads_icon.svg',
-                    color: Colors.grey,
+                    color: selection == 2 ? const Color(0xFF2B88D8) : Colors.grey,
                     height: 20.0,
                     width: 50.0,
                   ),
                   const SizedBox(width: 10),
-                  const Expanded(child: Text('CRM', style: TextStyle(color: Colors.grey),)),
-                  const Icon(Icons.arrow_forward_ios, size: 12.0,)
+                  Expanded(child: Text('CRM',
+                    style: TextStyle(color: selection == 2 ? const Color(0xFF2B88D8) : Colors.grey),)),
+                  Icon(Icons.arrow_forward_ios, size: 12.0,
+                      color: selection == 2 ? const Color(0xFF2B88D8) : Colors.grey
+                  )
                 ],),
               ),
             ),
             GestureDetector(
               onTap: (){
-                Navigator.pop(context);
+                // Navigator.pop(context);
+                setState(() {
+                  selection = 3;
+                });
               },
               child: Container(
                 width: MediaQuery.of(context).size.width,
@@ -130,17 +146,20 @@ class _NavDrawerState extends State<NavDrawer> {
                 padding: const EdgeInsets.only(left: 15, right: 20),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    color: Colors.transparent
+                    color: selection == 3 ? const Color(0x202B88D8) : Colors.transparent
                 ),
                 child: Row(children: [
                   SvgPicture.asset('asset/svg_icons/accounting_icon.svg',
-                    color: Colors.grey,
+                    color: selection == 3 ? const Color(0xFF2B88D8) : Colors.grey,
                     height: 20.0,
                     width: 50.0,
                   ),
                   const SizedBox(width: 10),
-                  const Expanded(child: Text('Accounting', style: TextStyle(color: Colors.grey),)),
-                  const Icon(Icons.arrow_forward_ios, size: 12.0,)
+                  Expanded(child: Text('Accounting',
+                    style: TextStyle(color: selection == 3 ? const Color(0xFF2B88D8) :  Colors.grey),)),
+                  Icon(Icons.arrow_forward_ios, size: 12.0,
+                      color: selection == 3 ? const Color(0xFF2B88D8) : Colors.grey
+                  )
                 ],),
               ),
             ),

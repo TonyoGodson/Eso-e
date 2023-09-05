@@ -1,5 +1,6 @@
 
 
+import 'package:eso_e/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 
@@ -84,6 +85,7 @@ class DropdownWidget extends StatefulWidget {
 }
 
 class _DropdownWidgetState extends State<DropdownWidget> {
+  late String selected;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -106,6 +108,9 @@ class _DropdownWidgetState extends State<DropdownWidget> {
             onChanged: (newValue){
               setState(() {
                 widget.valueChoose = newValue;
+                debugPrint("Client Sector is $newValue");
+                selected = newValue.toString();
+                debugPrint("Selected is $selected");
               });
             },
             items: widget.listItem.map((valueItem) {

@@ -57,3 +57,59 @@ Widget textField(
             ),
           )));
 }
+
+// @override
+// Widget build(BuildContext context) {
+//   double cHeight = MediaQuery.of(context).size.height;
+//   double cWidth = MediaQuery.of(context).size.width;
+//   TextEditingController textfield = TextEditingController();
+//   String employmentType = "Employment Type";
+//
+//   return Scaffold(
+//       appBar: const HiAppBar(),
+//       // isBusy: context.watch<HomeController>().loading,
+//       backgroundColor: ColorUtils.WHITE_COLOR,
+//       // bodyMargin: EdgeInsets.symmetric(vertical: 0),
+//       // bodyPadding: EdgeInsets.symmetric(horizontal: 0),
+//       body: ListView(
+//         children: [
+//           DropdownWidget(
+//               valueChoose: employmentType,
+//               listItem: const ["Employment Type", "Contract", "Full Staff"],
+//               hint: "Employment Type",
+//               left: 0.0, top: 0.0, right: 0.0, bottom: 0.0),
+//           CustomButtons(
+//             text: "My Button",
+//             textColor: ColorUtils.MAIN_RED,
+//             buttonColor: ColorUtils.LIGHT_BLUE,
+//             onTap: (){},
+//             isGradientBtn: false,
+//             radius: 0.0,
+//             paddingLeft: 0.0,
+//             paddingRight: 0.0,
+//             paddingTop: 0.0,
+//             paddingBottom: 0.0,
+//           ),
+//           SizedBox(height: 20,),
+//           MyTextFields(
+//             editController: textfield,
+//             labelText: "Text",
+//             hintText: "Field",
+//             isObscure: false,
+//             maxLenghtAllow: 21,
+//             maxLines: 1,
+//             radius: 0.0,
+//             paddingBottom: 0.0,
+//             paddingTop: 0.0,
+//             paddingRight: 0.0,
+//             paddingLeft: 0.0,
+//             password: true,
+//             suffixIcon: const Icon(Icons.lock),
+//             validator: (value){},
+//             eyeOpen: true,
+//             keyBoard: TextInputType.number,
+//
+//           ),
+//         ],)
+//   );
+// }

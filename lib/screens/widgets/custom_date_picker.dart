@@ -10,13 +10,15 @@ class DatePickerWidget extends StatefulWidget {
    final double top;
    final double right;
    final double bottom;
+   final Function(String)? onDateSelected;
 
   const DatePickerWidget({super.key,
     required this.myDate,
     required this.left,
     required this.top,
     required this.right,
-    required this.bottom
+    required this.bottom,
+    this.onDateSelected,
   });
 
   @override
@@ -26,6 +28,7 @@ class DatePickerWidget extends StatefulWidget {
 class _DatePickerWidgetState extends State<DatePickerWidget> {
   DateTime? pickedDate;
   String? formattedDate;
+  String? formattedDate2;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -47,8 +50,10 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
             lastDate: DateTime.now()
         );
          formattedDate = DateFormat("EEEE MMMM d, yyyy").format(pickedDate!);
+        formattedDate2 = DateFormat("dd-MM-yyyy").format(pickedDate!);
         debugPrint("date is $pickedDate");
         debugPrint("date is $formattedDate");
+        widget.onDateSelected!(formattedDate2!);
         Utils.increaseProgress();
         setState(() {});
       },
